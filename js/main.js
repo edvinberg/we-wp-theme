@@ -39,105 +39,105 @@
     //         }
     //     });
     // });
-    var isMobile = {
-        Android: function () {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function () {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function () {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function () {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function () {
-            return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function () {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-    };
+    // var isMobile = {
+    //     Android: function () {
+    //         return navigator.userAgent.match(/Android/i);
+    //     },
+    //     BlackBerry: function () {
+    //         return navigator.userAgent.match(/BlackBerry/i);
+    //     },
+    //     iOS: function () {
+    //         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    //     },
+    //     Opera: function () {
+    //         return navigator.userAgent.match(/Opera Mini/i);
+    //     },
+    //     Windows: function () {
+    //         return navigator.userAgent.match(/IEMobile/i);
+    //     },
+    //     any: function () {
+    //         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    //     }
+    // };
 
+    // $(document).ready(function () {
+    //     if (isMobile.any()) {
+    //         document.documentElement.className = document.documentElement.className + " touch";
+    //         $('.parallax-window').each(function (i, obj) {
+    //             $(this).css("background-image", 'url(' + $(this).data('image-src') + ')');
+    //             // $(this).css("background-size", "cover");
+    //             $(this).css("background-attachment", "fixed");
+    //             $(this).css("background-position", "center center");
+    //             // $(this).css("transform", "scale(0.95)");
+    //             $(this).css("transform", "translateZ(-2px) scale(0.95)");
+    //             $(this).css("transform-origin", "0 0");
+    //         });
+    //     }
+    // }());
     $(document).ready(function () {
-        if (isMobile.any()) {
-            document.documentElement.className = document.documentElement.className + " touch";
-            $('.parallax-window').each(function (i, obj) {
-                $(this).css("background-image", 'url(' + $(this).data('image-src') + ')');
-                // $(this).css("background-size", "cover");
-                $(this).css("background-attachment", "fixed");
-                $(this).css("background-position", "center center");
-                // $(this).css("transform", "scale(0.95)");
-                $(this).css("transform", "translateZ(-2px) scale(0.95)");
-                $(this).css("transform-origin", "0 0");
-            });
-        }
-    }());
-    $(document).ready(function () {
 
-        var $sections = $(".section"),
-            winW = $(window).width(),
-            winH = $(window).height();
+        // var $sections = $(".section"),
+        //     winW = $(window).width(),
+        //     winH = $(window).height();
+        //
+        // function setAttrs() {
+        //     $sections.each(function () {
+        //         var $this = $(this),
+        //             hasSvg = $this.children(".section__svg").length,
+        //             $bgCont = hasSvg ? $this.find(".section__svg") : $this,
+        //             offsetTop = $bgCont.offset().top,
+        //             height = $bgCont.outerHeight();
+        //
+        //         $(this).data({"offset": offsetTop, "height": height});
+        //     });
+        // }
+        //
+        // setAttrs();
 
-        function setAttrs() {
-            $sections.each(function () {
-                var $this = $(this),
-                    hasSvg = $this.children(".section__svg").length,
-                    $bgCont = hasSvg ? $this.find(".section__svg") : $this,
-                    offsetTop = $bgCont.offset().top,
-                    height = $bgCont.outerHeight();
+        // // debounce function from David Walsh blog
+        // function debounce(func, wait, immediate) {
+        //     var timeout;
+        //     return function () {
+        //         var context = this, args = arguments;
+        //         var later = function () {
+        //             timeout = null;
+        //             if (!immediate) func.apply(context, args);
+        //         };
+        //         var callNow = immediate && !timeout;
+        //         clearTimeout(timeout);
+        //         timeout = setTimeout(later, wait);
+        //         if (callNow) func.apply(context, args);
+        //     };
+        // };
 
-                $(this).data({"offset": offsetTop, "height": height});
-            });
-        }
+        // var resizeFn = debounce(function () {
+        //     setAttrs();
+        //     winW = $(window).width();
+        //     winH = $(window).height();
+        // }, 50);
+        //
+        // $(window).on("resize", resizeFn);
 
-        setAttrs();
-
-        // debounce function from David Walsh blog
-        function debounce(func, wait, immediate) {
-            var timeout;
-            return function () {
-                var context = this, args = arguments;
-                var later = function () {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                };
-                var callNow = immediate && !timeout;
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-                if (callNow) func.apply(context, args);
-            };
-        };
-
-        var resizeFn = debounce(function () {
-            setAttrs();
-            winW = $(window).width();
-            winH = $(window).height();
-        }, 50);
-
-        $(window).on("resize", resizeFn);
-
-        $(window).on("scroll", function () {
-            var st = $(window).scrollTop();
-            $sections.each(function () {
-                var $this = $(this),
-                    $bg = $(this).find(".section__bg"),
-                    $svgImg = $(this).find(".section__svg image"),
-                    offsetTop = $this.data("offset"),
-                    height = $this.data("height"),
-                    ofTop = offsetTop - height,
-                    percent = 0;
-
-                percent = (st - offsetTop + winH) / height * 100;
-                if (st < offsetTop - winH) percent = 0;
-                if (st > offsetTop + height) percent = 200;
-                $bg.css("transform", "translate3d(0," + (percent / -6) + "%,0)");
-                $svgImg.attr("y", (-35 - percent / 7) + "%");
-            });
-        });
-
-        $(window).trigger("scroll");
+        // $(window).on("scroll", function () {
+        //     var st = $(window).scrollTop();
+        //     $sections.each(function () {
+        //         var $this = $(this),
+        //             $bg = $(this).find(".section__bg"),
+        //             $svgImg = $(this).find(".section__svg image"),
+        //             offsetTop = $this.data("offset"),
+        //             height = $this.data("height"),
+        //             ofTop = offsetTop - height,
+        //             percent = 0;
+        //
+        //         percent = (st - offsetTop + winH) / height * 100;
+        //         if (st < offsetTop - winH) percent = 0;
+        //         if (st > offsetTop + height) percent = 200;
+        //         $bg.css("transform", "translate3d(0," + (percent / -6) + "%,0)");
+        //         $svgImg.attr("y", (-35 - percent / 7) + "%");
+        //     });
+        // });
+        //
+        // $(window).trigger("scroll");
 
     });
 })();
