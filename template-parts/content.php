@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php $url = wp_get_attachment_url(get_post_thumbnail_id(), 'thumbnail'); ?>
-    <div class="parallax-window" data-parallax="scroll" data-image-src=<?php echo $url ?>>
+    <div class="parallax-window" data-parallax="scroll" data-ios-fix="false" data-image-src=<?php echo $url ?>>
 
         <div class='description'>
             <!-- description content -->

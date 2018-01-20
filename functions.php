@@ -114,7 +114,7 @@ function we_widgets_init() {
 add_action( 'widgets_init', 'we_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * Enqueue scripts and styles
  */
 function we_scripts() {
 	wp_enqueue_style( 'we-style', get_stylesheet_uri() );

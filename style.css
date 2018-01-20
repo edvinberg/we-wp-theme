@@ -845,7 +845,9 @@ object {
 
 .parallax-window {
     min-height: 600px;
-    background: transparent;
+    background-color:transparent;
+    scroll-behavior: smooth;
+    /*background: transparent;*/
 }
 
 div.description {
