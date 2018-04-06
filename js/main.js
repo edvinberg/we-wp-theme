@@ -2,142 +2,78 @@
  *
  */
 (function () {
-
-    // $('.img-parallax').each(function(){
-    //     var img = $(this);
-    //     var imgParent = $(this).parent();
-    //     function parallaxImg () {
-    //         var speed = img.data('speed');
-    //         var imgY = imgParent.offset().top;
-    //         var winY = $(this).scrollTop();
-    //         var winH = $(this).height();
-    //         var parentH = imgParent.innerHeight();
-    //
-    //
-    //         // The next pixel to show on screen
-    //         var winBottom = winY + winH;
-    //
-    //         // If block is shown on screen
-    //         if (winBottom > imgY && winY < imgY + parentH) {
-    //             // Number of pixels shown after block appear
-    //             var imgBottom = ((winBottom - imgY) * speed);
-    //             // Max number of pixels until block disappear
-    //             var imgTop = winH + parentH;
-    //             // Porcentage between start showing until disappearing
-    //             var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-    //         }
-    //         img.css({
-    //             top: imgPercent + '%',
-    //             transform: 'translate(-50%, -' + imgPercent + '%)'
-    //         });
-    //     }
-    //     $(document).on({
-    //         scroll: function () {
-    //             parallaxImg();
-    //         }, ready: function () {
-    //             parallaxImg();
-    //         }
-    //     });
-    // });
-    // var isMobile = {
-    //     Android: function () {
-    //         return navigator.userAgent.match(/Android/i);
-    //     },
-    //     BlackBerry: function () {
-    //         return navigator.userAgent.match(/BlackBerry/i);
-    //     },
-    //     iOS: function () {
-    //         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    //     },
-    //     Opera: function () {
-    //         return navigator.userAgent.match(/Opera Mini/i);
-    //     },
-    //     Windows: function () {
-    //         return navigator.userAgent.match(/IEMobile/i);
-    //     },
-    //     any: function () {
-    //         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    //     }
-    // };
-
-    // $(document).ready(function () {
-    //     if (isMobile.any()) {
-    //         document.documentElement.className = document.documentElement.className + " touch";
-    //         $('.parallax-window').each(function (i, obj) {
-    //             $(this).css("background-image", 'url(' + $(this).data('image-src') + ')');
-    //             // $(this).css("background-size", "cover");
-    //             $(this).css("background-attachment", "fixed");
-    //             $(this).css("background-position", "center center");
-    //             // $(this).css("transform", "scale(0.95)");
-    //             $(this).css("transform", "translateZ(-2px) scale(0.95)");
-    //             $(this).css("transform-origin", "0 0");
-    //         });
-    //     }
-    // }());
     $(document).ready(function () {
+        var $fadish = $('.flex-grid-thirds .col:nth-child(2)');
+        $fadish.css({
+            'opacity':1
+        });
 
-        // var $sections = $(".section"),
-        //     winW = $(window).width(),
-        //     winH = $(window).height();
-        //
-        // function setAttrs() {
-        //     $sections.each(function () {
-        //         var $this = $(this),
-        //             hasSvg = $this.children(".section__svg").length,
-        //             $bgCont = hasSvg ? $this.find(".section__svg") : $this,
-        //             offsetTop = $bgCont.offset().top,
-        //             height = $bgCont.outerHeight();
-        //
-        //         $(this).data({"offset": offsetTop, "height": height});
-        //     });
-        // }
-        //
-        // setAttrs();
 
-        // // debounce function from David Walsh blog
-        // function debounce(func, wait, immediate) {
-        //     var timeout;
-        //     return function () {
-        //         var context = this, args = arguments;
-        //         var later = function () {
-        //             timeout = null;
-        //             if (!immediate) func.apply(context, args);
-        //         };
-        //         var callNow = immediate && !timeout;
-        //         clearTimeout(timeout);
-        //         timeout = setTimeout(later, wait);
-        //         if (callNow) func.apply(context, args);
-        //     };
-        // };
+        var $horizontal = $('.col:nth-child(1) a img');
+        var $horizontal2 = $('.col:nth-child(3) a img');
 
-        // var resizeFn = debounce(function () {
-        //     setAttrs();
-        //     winW = $(window).width();
-        //     winH = $(window).height();
-        // }, 50);
-        //
-        // $(window).on("resize", resizeFn);
 
-        // $(window).on("scroll", function () {
-        //     var st = $(window).scrollTop();
-        //     $sections.each(function () {
-        //         var $this = $(this),
-        //             $bg = $(this).find(".section__bg"),
-        //             $svgImg = $(this).find(".section__svg image"),
-        //             offsetTop = $this.data("offset"),
-        //             height = $this.data("height"),
-        //             ofTop = offsetTop - height,
-        //             percent = 0;
-        //
-        //         percent = (st - offsetTop + winH) / height * 100;
-        //         if (st < offsetTop - winH) percent = 0;
-        //         if (st > offsetTop + height) percent = 200;
-        //         $bg.css("transform", "translate3d(0," + (percent / -6) + "%,0)");
-        //         $svgImg.attr("y", (-35 - percent / 7) + "%");
-        //     });
-        // });
-        //
-        // $(window).trigger("scroll");
+        window.onscroll = function () {
+            imgsSlide();
+            scrollFunctionNav();
+
+        };
+         function imgsSlide () {
+            var s = $(this).scrollTop(),
+                d = $(document).height(),
+                c = $(this).height();
+
+            scrollPercent = (s / (d - c));
+
+            var positionLeft = ((scrollPercent + 1.3) * 0.3 * ($(document).width() / 2 - $horizontal.width()));
+            var positiontop1 = ((scrollPercent + 0.1) * 0.2 * ($(document).height() / 2 - $horizontal.height()));
+
+            var positionRight = ((scrollPercent + 6) * 0.1 * ($(document).width() / 2 - $horizontal2.width()));
+            var positiontop2 = ((scrollPercent +3) * 0.1 * ($(document).height() / 2 - $horizontal2.height()));
+
+
+            $horizontal.css({
+                'opacity': 1,
+                'left': positionLeft,
+                'bottom': positiontop1 - 200
+            });
+
+            $horizontal2.css({
+                'opacity': 1,
+                'right': positionRight,
+                'bottom': positiontop2- 200
+            });
+
+        }
+
+        function scrollFunctionNav() {
+
+            if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+                $("#centered").fadeOut();
+
+            } else {
+                $("#centered").fadeIn();
+            }
+
+
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+
+                document.getElementById("header-usp").style.top = "-100px";
+                document.getElementsByClassName("custom-logo")[0].style.top = "20px";
+                document.getElementsByClassName("custom-logo")[0].style.width = "100px";
+
+
+            } else {
+                // $centerLane.css({
+                //     'top': '0px'
+                // });
+                document.getElementById("header-usp").style.top = "0";
+
+                document.getElementsByClassName("custom-logo")[0].style.top = "80px";
+                document.getElementsByClassName("custom-logo")[0].style.width = " 180px";
+            }
+        }
+
 
     });
 })();

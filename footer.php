@@ -22,12 +22,12 @@
             </h1>
 			<a href="<?php echo esc_url( __( 'www.vespr.se', 'we' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Love  %s', 'we' ), 'Ed' );
+				printf( esc_html__( 'VESPR.se  %s', 'we' ), '' );
 			?></a>
 			<span class="sep"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( ': %1$s by %2$s.', 'we' ), 'we', '<a href="http://dagghätta.se/">eddaB</a>' );
+				printf( esc_html__( ' %1$s by %2$s.', 'vespr arkitektur' ), '', '<a href="http://vespr.se/">Anders E</a>' );
 			?>
 		</div><!-- .site-info -->
 
