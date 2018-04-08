@@ -1,24 +1,10 @@
 <?php
 /**
- * Template part for displaying posts
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
  * @package we
  */
 
 ?>
 <?php $url = wp_get_attachment_url( get_post_thumbnail_id(), 'thumbnail' ); ?>
-
-
-<!--<div class="col">-->
-<!--    <article id="post---><?php //the_ID(); ?><!--" --><?php //post_class(); ?><!-->
-<!--		--><?php //$url = wp_get_attachment_url( get_post_thumbnail_id(), 'thumbnail' ); ?>
-<!--        <img src=--><?php //echo $url ?><!-- </img>-->
-<!--    </article>-->
-<!--</div>-->
-
-
 
 <div class="col">
 	<?php
@@ -36,12 +22,3 @@
 
 	?>
 </div>
-<!--        --><?php //the_ID(); ?>
-
-
-<!--<div class="col">-->
-<!--    <article id="post---><?php //the_ID(); ?><!--" --><?php //post_class(); ?><!--<!-->
-<!--		--><?php //$url = wp_get_attachment_url( get_post_thumbnail_id(), 'thumbnail' ); ?>
-<!--        <img src=--><?php //echo $url ?><!--> <!--</img>-->
-<!--    </article>-->
-<!--</div>-->

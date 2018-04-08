@@ -19,6 +19,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 # Normalize
 --------------------------------------------------------------*/
 html body {
+    min-height: 100%;
+    height: 100%;
     -webkit-font-smoothing: antialiased !important;
     line-height: 1.8em;
     /*COLOR: #c1c1c1;*/
@@ -76,6 +78,9 @@ a {
 a:active,
 a:hover {
     outline: 0;
+}
+a:visited {
+    color: black;
 }
 
 abbr[title] {
@@ -462,9 +467,6 @@ a {
     color: royalblue;
 }
 
-a:visited {
-    color: purple;
-}
 
 a:hover, a:focus, a:active {
     color: midnightblue;
@@ -931,7 +933,7 @@ div.description--single {
 
 .custom-logo {
     animation: 1s slide-down;
-    margin-top:0%;
+    margin-top: 0%;
     z-index: 99;
     left: 50%;
     -webkit-transform: translateX(-53%);
@@ -944,7 +946,8 @@ div.description--single {
     top: 80px;
     position: fixed;
 }
-.custom-toto{
+
+.custom-toto {
     z-index: 99;
     /*left: 50%;*/
     /*-webkit-transform: translateX(-53%);*/
@@ -959,6 +962,7 @@ div.description--single {
     /*position: fixed;*/
 
 }
+
 .site-footer {
     text-align: center;
 }
@@ -1542,31 +1546,31 @@ nav select:focus {
 
     -webkit-animation: fadein 3s;
     animation: 3s fadein;
-    margin-top:0%;
+    margin-top: 0%;
     font-weight: 400;
     font-size: 15px;
 }
 
-.videoContainer video {
-    width: 50%;
-    float: left;
-    position: relative;
-    transition: top 0.3s;
-    left: 50%;
-    transform: translateX(-50%);
-}
+/*.videoContainer video {*/
+    /*width: 50%;*/
+    /*float: left;*/
+    /*position: relative;*/
+    /*transition: top 0.3s;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+/*}*/
 
-.videoContainer article {
-    width: 25%;
-    float: left;
-    width: 90px;
-    float: left;
-    overflow: hidden;
+/*.videoContainer article {*/
+    /*width: 25%;*/
+    /*float: left;*/
+    /*width: 90px;*/
+    /*float: left;*/
+    /*overflow: hidden;*/
 
-    top: 0;
-    left: 0;
-    z-index: 9;
-}
+    /*top: 0;*/
+    /*left: 0;*/
+    /*z-index: 9;*/
+/*}*/
 
 #centered {
     padding-top: 30px;
@@ -1582,7 +1586,7 @@ nav select:focus {
 
 .header-usp {
     animation: 1s slide-down;
-    margin-top:0%;
+    margin-top: 0%;
     /*COLOR: #c1c1c1;*/
     COLOR: #fff;
     background-color: #0D364C;
@@ -1619,7 +1623,7 @@ nav select:focus {
 }
 
 .flex-grid .col {
-
+    /*width: 32%;*/
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -1633,10 +1637,12 @@ nav select:focus {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    /*flex-wrap: wrap;*/
+    flex-wrap: wrap;
 }
 
 .flex-grid-thirds .col {
+    width: 32%;
+    padding: 10px;
 }
 
 .col video {
@@ -1644,7 +1650,15 @@ nav select:focus {
     height: auto;
     position: relative;
     animation: 3s slide-up;
-    margin-top:0%;
+    margin-top: 0%;
+}
+
+.col:nth-child(2) {
+    width: 100%;
+    height: auto;
+    position: relative;
+    animation: 3s slide-up;
+    margin-top: 0%;
 }
 
 .col a img {
@@ -1652,56 +1666,142 @@ nav select:focus {
     height: auto;
 }
 
-@media (min-width: 760px) {
-    .col a img {
-        max-width: 25%;
-        position: absolute;
-        width: 100%;
-        height: auto;
-        opacity: 0;
-        -webkit-transition: opacity 0.5s ease-in;
-        -moz-transition: opacity 0.5s ease-in;
-        -o-transition: opacity 0.5s ease-in;
-        -ms-transition: opacity 0.5s ease-in;
-        transition: opacity 0.5s ease-in;
-        /*position: fixed;*/
-        /*width: 200px;*/
-        /*left: 0;*/
-        /*top: 10px;*/
-        /*height: 200px;*/
+@media (min-width: 760px)  and (max-width: 1440px) {
+    .col:nth-child(5) a img {
+        max-width: 100%;
+    }
+    .col:nth-child(2) a img {
+        max-width: 100%;
+        z-index: 1;
     }
 
+    @media (min-width: 760px) {
+        .col a img {
+            opacity: 0;
+            max-width: 75%;
+            z-index: 999;
+            -webkit-transition: opacity 0.5s ease-in;
+            -moz-transition: opacity 0.5s ease-in;
+            -o-transition: opacity 0.5s ease-in;
+            -ms-transition: opacity 0.5s ease-in;
+            transition: opacity 0.5s ease-in;
+        }
+    }
+
+
+    .flex-grid-thirds .col:nth-child(2) {
+        flex-wrap: wrap;
+    }
+
+    .flex-grid-thirds .col:nth-child(2) p a img {
+        opacity: 1;
+        width: 100%;
+        height: auto;
+        position: relative;
+        animation: 3s slide-up;
+        margin-top: 0%;
+    }
+
+    .flex-grid-thirds .col:nth-child(1) {
+        transform: translate3d(70px, 10px, 0);
+        z-index: 99;
+
+        /*padding-top: 18vw;*/
+        /*margin-left: 8vw;*/
+    }
+
+    .flex-grid-thirds .col:nth-child(3) {
+        transform: translate3d(-42px, 95px, 0);
+        z-index: 99;
+    }
+
+    .flex-grid-thirds .col:nth-child(4) {
+        transform: translate3d(80px, 100px, 0);
+        z-index: 1009;
+    }
+
+    .flex-grid-thirds .col:nth-child(6) {
+        z-index: 1009;
+        transform: translate3d(-42px, 200px, 0);
+
+    }
+
+    .flex-grid-thirds .col:nth-child(5) p a img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        animation: 3s slide-up;
+        margin-top: 0%;
+    }
+
+    .flex-grid-thirds .col:nth-child(5) p a {
+        width: 100%;
+    }
+
+    .contact-info {
+        font-size: x-large;
+        margin-top: 20px;
+        font-weight: 600;
+
+    }
+
+    .flex-grid-thirds .col {
+        width: 32%;
+        padding: 10px;
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    .flex-grid {
+        margin: 0 0 20px 0;
+    }
+
+    .col {
+        padding: 20px;
+    }
+
+    @keyframes slide-up {
+        from {
+            margin-top: 100%;
+            height: 300%;
+        }
+
+        to {
+            margin-top: 0%;
+            height: 100%;
+        }
+    }
+
+    @keyframes slide-down {
+        from {
+            margin-top: -100px;
+            height: 0%;
+        }
+
+        to {
+            margin-top: 0;
+        }
+    }
+    @keyframes fadein {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 }
 
-.flex-grid-thirds .col:nth-child(2) {
-    min-width: 300px;
-    width: 30%;
-    opacity: 0;
-    /*width: 35%;*/
-    /*background: red;*/
-}
-
-.flex-grid-thirds .col:nth-child(1) {
-    z-index: 99;
-
-    width: 25%;
-    /*padding-top: 18vw;*/
-    /*margin-left: 8vw;*/
-}
-
-.flex-grid-thirds .col:nth-child(3) {
-    width: 25%;
-    z-index: 99;
-    /*padding-top: 12vw;*/
-    /*margin-right: 8vw;*/
-
-}
-.contact-info{
-    font-size: x-large;
-    margin-top: 20px;
-    font-weight: 600;
-
-}
 @media (max-width: 760px) {
     .flex-grid,
     .flex-grid-thirds {
@@ -1709,73 +1809,25 @@ nav select:focus {
     }
 
     .flex-grid .col,
-    .flex-grid-thirds .col,
-    .flex-grid-thirds .col:nth-child(2),
-    .flex-grid-thirds .col:nth-child(1),
-    .flex-grid-thirds .col:nth-child(3) {
+    .flex-grid-thirds .col {
+
         width: 100%;
         margin: 0 0 10px 0;
     }
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-body {
-    padding: 20px;
-}
-
-.flex-grid {
-    margin: 0 0 20px 0;
-}
-
-.col {
-    padding: 20px;
-}
-
-
-@keyframes slide-up {
-    from {
-        margin-top: 100%;
-        height: 300%;
-    }
-
-    to {
-        margin-top: 0%;
-        height: 100%;
+    .flex-grid-thirds .col p a img {
+        transform: translate3d(0px, 0px, 0)!important;
     }
 }
 
-@keyframes slide-down {
-    from {
-        margin-top:-100px;
-        height: 0%;
+@media (min-width: 1440px) {
+    .flex-grid,
+    .flex-grid-thirds {
+        display: block;
     }
 
-    to {
-        margin-top: 0;
+    .flex-grid .col,
+    .flex-grid-thirds .col {
+        width: 100%;
+        margin: 0 0 10px 0;
     }
-}
-@keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}@keyframes fadeout {
-     0% {
-         opacity: 1;
-     }
-     30% {
-         opacity: 1;
-     }
-     100% {
-         opacity: 0;
-     }
 }
