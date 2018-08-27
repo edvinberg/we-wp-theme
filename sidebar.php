@@ -12,6 +12,13 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
+
+
+
+<div class="absoluteico">
+    <img src="/static/media/loggatran.c9f76a59.png" class="absoluteico--ico" alt="logo">
+</div>
+
 <aside id="secondary" class="widget-area">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+</aside><!-- #secondary

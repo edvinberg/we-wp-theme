@@ -14,20 +14,22 @@
 	</div><!-- #content -->
 <?php
 ?>
-	<footer id="colophon" class="site-footer" style="height:150px; padding: 2vw;">
+	<footer id="colophon" class="site-footer" style="height:35px; padding: 2vw;">
 		<div class="site-info">
-            <h1 class="site-title">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span class="no-logo"><?php bloginfo( 'name' ); ?></span>
-                </a>
-            </h1>
-			<a href="<?php echo esc_url( __( 'www.vespr.se', 'we' ) ); ?>"><?php
+<!--            <h1 class="site-title">-->
+<!--                <a href="--><?php //echo esc_url( home_url( '/' ) ); ?><!--" rel="home"><span class="no-logo">--><?php //bloginfo( 'name' ); ?><!--</span>-->
+<!--                </a>-->
+<!--            </h1>-->
+            <strong><a href="<?php echo esc_url( __( 'mailto:anders.eriksson@vespr.se?Subject=Hej', 'we' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'VESPR.se  %s', 'we' ), '' );
-			?></a>
+				printf( esc_html__( 'Kontakt  %s', 'we' ), '' );
+			?></a></strong>
 			<span class="sep"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( ' %1$s by %2$s.', 'vespr arkitektur' ), '', '<a href="http://vespr.se/">Anders E</a>' );
+				printf( esc_html__( ' %1$s %2$s', 'vespr arkitektur' ), '', '<a href="mailto:anders.eriksson@vespr.se?Subject=Hej">
+anders.eriksson@vespr.se 
+</a> 	<span class="sep"> | </span> +46(0)72 503 6570' );
 			?>
 		</div><!-- .site-info -->
 
