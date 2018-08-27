@@ -14,7 +14,7 @@
 	</div><!-- #content -->
 <?php
 ?>
-	<footer id="colophon" class="site-footer" style="height:35px; padding: 2vw;">
+	<footer id="colophon" class="site-footer">
 		<div class="site-info">
 <!--            <h1 class="site-title">-->
 <!--                <a href="--><?php //echo esc_url( home_url( '/' ) ); ?><!--" rel="home"><span class="no-logo">--><?php //bloginfo( 'name' ); ?><!--</span>-->

@@ -890,7 +890,14 @@ div.description {
 .site-footer {
     text-align: center;
 }
-
+.site-info {
+    padding: 30px;
+     height: 100px;
+}
+#colophon{
+    /*height:35px;*/
+    /*padding: 10px;*/
+}
 h1 a:link {
     color: white;
     text-decoration: none;
