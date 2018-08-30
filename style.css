@@ -18,11 +18,9 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-
 * {
     box-sizing: border-box;
 }
-
 html body {
     color: #888;
     background: #f3f2e6;
@@ -132,7 +130,6 @@ img {
     object-fit: cover;
     font-family: 'object-fit: cover;';
     border: 0;
-
 }
 
 .col p video {
@@ -891,8 +888,9 @@ div.description {
     text-align: center;
 }
 .site-info {
+    font-size: 14px;
     padding: 30px;
-     height: 100px;
+    height: 100px;
 }
 #colophon{
     /*height:35px;*/
@@ -1017,7 +1015,7 @@ h3 {
 
 p {
     font-family: Lato, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
@@ -1121,6 +1119,7 @@ p {
         margin: 0 0 0 0;
     }
     .flex-grid-thirds .col:nth-child(1) {
+        margin-top: 25px;
         padding-bottom: 30px;
         padding-left: 20px;
         padding-right: 20px;
@@ -1128,7 +1127,7 @@ p {
     .centered {
         text-align: center;
         color: #ece9ea;
-        font-size: large;
+        font-size: 16px;
         font-weight:bold ;
         margin: auto;
         width: 100vw;
@@ -1141,7 +1140,10 @@ p {
 @media only screen and (max-width: 792px) and (min-width: 661px) {
     .flex-grid-thirds .col:nth-child(1) {
         min-width: 440px;
-        margin: 20px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
         width: 47%;
     }
 
@@ -1185,16 +1187,16 @@ p {
     }
 }
 .post-text {
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
 }
 .post-text {
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
 
 }
 .post-text strong{
-    font-size: 25px;
+    font-size: 16px;
 }
 @media (min-width: 661px) {
     .flex-grid-thirds {
@@ -1210,9 +1212,8 @@ p {
     .centered {
         text-align: center;
         color: #ece9ea;;
-        font-size: x-large;
+        font-size: 16px;
         font-weight:bold;
-        text-transform: uppercase;
         margin: auto;
         width: 50vw;
         padding: 20px;
@@ -1319,8 +1320,8 @@ p {
 }
 
 /*.intro-container {*/
-    /*height: 100%;*/
-    /*text-align: center;*/
+/*height: 100%;*/
+/*text-align: center;*/
 /*}*/
 
 .scroll-down {
@@ -1331,6 +1332,6 @@ p {
 }
 
 /*.scroll-down .subheading {*/
-    /*padding: 10px;*/
-    /*color: #fff;*/
+/*padding: 10px;*/
+/*color: #fff;*/
 /*}*/
