@@ -1043,6 +1043,12 @@ p {
 }
 
 @media (max-width: 660px) {
+    .site-info {
+        padding-bottom: 30px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 30px;
+    }
     .custom-logo{
         max-width: 140px;
     }
